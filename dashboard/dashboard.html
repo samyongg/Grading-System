@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grading System Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>GradingSys</h2>
+        <ul>
+            <li class="active">Dashboard</li>
+            <li onclick="goStudents()">Students</li>
+            <li onclick="goGrades()">Grades</li>
+            <li onclick="goReports()">Reports</li>
+            <li onclick="goSettings()">Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <h3>Dashboard</h3>
+            <span>Welcome, Sir. Sammy Balanay</span>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+            <div class="card">
+                <h4>School Year</h4>
+                <p>2025 - 2026</p>
+            </div>
+
+            <div class="card">
+                <h4>Total Sections</h4>
+                <p>3</p>
+            </div>
+
+            <div class="card">
+                <h4>Total Students</h4>
+                <p>120</p>
+            </div>
+
+            <div class="card">
+                <h4>Average Grade</h4>
+                <p>88.5</p>
+            </div>
+        </div>
+
+        <!-- TABLE SAMPLE -->
+        <div class="table-section">
+            <h3>Students (Sample)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Section</th>
+                        <th>Final Grade</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Dela Cruz</td>
+                        <td>BSIT 2-A</td>
+                        <td>90</td>
+                        <td>Passed</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Santos</td>
+                        <td>BSIT 2-B</td>
+                        <td>85</td>
+                        <td>Passed</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Reyes</td>
+                        <td>BSIT 2-A</td>
+                        <td>74</td>
+                        <td>Failed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function goStudents() {
+            window.location.href = "student.html";
+        }
+
+        function goGrades() {
+            window.location.href = "grade.html";
+        }
+
+        function goReports() {
+            window.location.href = "report.html";
+        }
+
+        function goSettings() {
+            window.location.href = "setting.html";
+        }
+        
+        function logout() {
+            window.location.href = "../login.html";
+        }
+    </script>
+
+</body>
+</html>

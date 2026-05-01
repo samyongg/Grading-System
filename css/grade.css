@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background: #111;
+    color: #fff;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #1a1a1a;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background: #333;
+}
+
+/* MAIN */
+.container {
+    margin-left: 240px;
+    width: 100%;
+    padding: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* FILTERS */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters select {
+    padding: 10px;
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.filters button {
+    padding: 10px 15px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    background: #ccc;
+}
+
+/* MESSAGE */
+.message {
+    color: #ccc;
+}
+
+/* TABLE */
+.table-section {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.actions {
+    margin-bottom: 15px;
+}
+
+.actions button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background: #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+table th {
+    color: #ccc;
+    text-align: left;
+}
+
+table tr:hover {
+    background: #222;
+}
+
+/* INPUT */
+input.grade {
+    width: 70px;
+    padding: 5px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 5px;
+}

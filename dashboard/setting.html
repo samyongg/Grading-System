@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/setting.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>GradingSys</h2>
+        <ul>
+            <li onclick="goDashboard()">Dashboard</li>
+            <li onclick="goStudents()">Students</li>
+            <li onclick="goGrades()">Grades</li>
+            <li onclick="goReports()">Reports</li>
+            <li class="active">Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+        <h2>Teacher Information</h2>
+
+        <div class="profile-box">
+
+            <!-- LEFT SIDE (IMAGE WITH HOVER UPLOAD) -->
+            <div class="profile-left">
+                <div class="image-wrapper" onclick="document.getElementById('upload').click()">
+                    <img id="profileImage" src="https://via.placeholder.com/120" alt="Profile">
+
+                    <div class="overlay">
+                        <span class="plus">+</span>
+                    </div>
+                </div>
+
+                <input type="file" id="upload" accept="image/*" onchange="previewImage(event)">
+            </div>
+
+            <!-- RIGHT SIDE (INFO) -->
+            <div class="profile-right">
+                <h3>Sammy S. Balanay</h3>
+                <p class="dept">BSIT Department</p>
+
+                <div class="info">
+                    <p><strong>Full Name:</strong> Sammy S. Balanay</p>
+                    <p><strong>Email:</strong> balanaysammy@gmail.com</p>
+                    <p><strong>Position:</strong> Part-time Instructor</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+        document.getElementById("profileImage").src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+function goDashboard() {
+    window.location.href = "dashboard.html";
+}
+
+function goStudents() {
+    window.location.href = "student.html";
+}
+
+function goGrades() {
+    window.location.href = "grade.html";
+}
+
+function goReports() {
+    window.location.href = "report.html";
+}
+
+function logout() {
+    window.location.href = "../login.html";
+}
+</script>
+
+</body>
+</html>

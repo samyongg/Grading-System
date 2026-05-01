@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/student.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>GradingSys</h2>
+        <ul>
+            <li onclick="goDashboard()">Dashboard</li>
+            <li class="active">Students</li>
+            <li onclick="goGrades()">Grades</li>
+            <li onclick="goReports()">Reports</li>
+            <li onclick="goSettings()">Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>Student List</h2>
+
+        <!-- FILTER SECTION -->
+        <div class="filters">
+            <select id="schoolYear">
+                <option value="">Select School Year</option>
+                <option>2025-2026</option>
+                <option>2026-2027</option>
+            </select>
+
+            <select id="semester">
+                <option value="">Select Semester</option>
+                <option>1st Semester</option>
+                <option>2nd Semester</option>
+            </select>
+
+            <select id="section">
+                <option value="">Select Section</option>
+                <option>BSIT 2-A</option>
+                <option>BSIT 2-B</option>
+            </select>
+
+            <button onclick="filterData()">Filter</button>
+        </div>
+
+        <!-- MESSAGE -->
+        <p id="message" class="message">
+            Please select all filters to display students.
+        </p>
+
+        <!-- TABLE -->
+        <div id="tableSection" class="table-section" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Section</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Dela Cruz</td>
+                        <td>BSIT 2-A</td>
+                        <td><button class="view-btn">View Grades</button></td>
+                    </tr>
+                    <tr>
+                        <td>Maria Santos</td>
+                        <td>BSIT 2-B</td>
+                        <td><button class="view-btn">View Grades</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function filterData() {
+            let sy = document.getElementById("schoolYear").value;
+            let sem = document.getElementById("semester").value;
+            let sec = document.getElementById("section").value;
+
+            if (sy && sem && sec) {
+                document.getElementById("tableSection").style.display = "block";
+                document.getElementById("message").style.display = "none";
+            } else {
+                document.getElementById("tableSection").style.display = "none";
+                document.getElementById("message").style.display = "block";
+            }
+        }
+
+        function goDashboard() {
+            window.location.href = "dashboard.html";
+        }
+
+        function goGrades() {
+            window.location.href = "grade.html";
+        }
+
+        function goReports() {
+            window.location.href = "report.html";
+        }
+
+        function goSettings() {
+            window.location.href = "setting.html";
+        }
+        
+        function logout() {
+            window.location.href = "../login.html";
+        }
+    </script>
+
+</body>
+</html>

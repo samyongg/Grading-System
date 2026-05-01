@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/grade.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>GradingSys</h2>
+        <ul>
+            <li onclick="goDashboard()">Dashboard</li>
+            <li onclick="goStudents()">Students</li>
+            <li class="active">Grades</li>
+            <li onclick="goReports()">Reports</li>
+            <li onclick="goSettings()">Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>Grade Management</h2>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <select id="schoolYear">
+                <option value="">Select School Year</option>
+                <option>2025-2026</option>
+                <option>2026-2027</option>
+            </select>
+
+            <select id="semester">
+                <option value="">Select Semester</option>
+                <option>1st Semester</option>
+                <option>2nd Semester</option>
+            </select>
+
+            <select id="section">
+                <option value="">Select Section</option>
+                <option>BSIT 2-A</option>
+                <option>BSIT 2-B</option>
+            </select>
+
+            <button onclick="loadGrades()">Filter</button>
+        </div>
+
+        <!-- MESSAGE -->
+        <p id="message" class="message">
+            Please select all filters to load grading sheet.
+        </p>
+
+        <!-- TABLE -->
+        <div id="tableSection" class="table-section" style="display:none;">
+
+            <!-- ACTION BUTTONS -->
+            <div class="actions">
+                <button onclick="computeAll()">Compute All</button>
+                <button>Save</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Prelim</th>
+                        <th>Midterm</th>
+                        <th>Final</th>
+                        <th>Average</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+
+                <tbody id="gradeTable">
+                    <tr>
+                        <td>Juan Dela Cruz</td>
+                        <td><input type="number" class="grade"></td>
+                        <td><input type="number" class="grade"></td>
+                        <td><input type="number" class="grade"></td>
+                        <td class="avg">-</td>
+                        <td class="remarks">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>Maria Santos</td>
+                        <td><input type="number" class="grade"></td>
+                        <td><input type="number" class="grade"></td>
+                        <td><input type="number" class="grade"></td>
+                        <td class="avg">-</td>
+                        <td class="remarks">-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+<script>
+function loadGrades() {
+    let sy = document.getElementById("schoolYear").value;
+    let sem = document.getElementById("semester").value;
+    let sec = document.getElementById("section").value;
+
+    if (sy && sem && sec) {
+        document.getElementById("tableSection").style.display = "block";
+        document.getElementById("message").style.display = "none";
+    } else {
+        document.getElementById("tableSection").style.display = "none";
+        document.getElementById("message").style.display = "block";
+    }
+}
+
+function computeAll() {
+    let rows = document.querySelectorAll("#gradeTable tr");
+
+    rows.forEach(row => {
+        let inputs = row.querySelectorAll(".grade");
+        let avgCell = row.querySelector(".avg");
+        let remarksCell = row.querySelector(".remarks");
+
+        let p = parseFloat(inputs[0].value) || 0;
+        let m = parseFloat(inputs[1].value) || 0;
+        let f = parseFloat(inputs[2].value) || 0;
+
+        let avg = (p + m + f) / 3;
+
+        avgCell.innerText = avg.toFixed(2);
+
+        if (avg >= 75) {
+            remarksCell.innerText = "Passed";
+            remarksCell.style.color = "lightgreen";
+        } else {
+            remarksCell.innerText = "Failed";
+            remarksCell.style.color = "red";
+        }
+    });
+}
+
+    function goDashboard() {
+        window.location.href = "dashboard.html";
+    }
+
+    function goStudents() {
+        window.location.href = "student.html";
+    }
+
+    function goReports() {
+        window.location.href = "report.html";
+    }
+
+    function goSettings() {
+        window.location.href = "setting.html";
+    }
+        
+    function logout() {
+        window.location.href = "../login.html";
+    }
+</script>
+
+</body>
+</html>

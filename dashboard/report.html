@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>GradingSys</h2>
+        <ul>
+            <li onclick="goDashboard()">Dashboard</li>
+            <li onclick="goStudents()">Students</li>
+            <li onclick="goGrades()">Grades</li>
+            <li class="active">Reports</li>
+            <li onclick="goSettings()">Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>Reports</h2>
+
+        <!-- MESSAGE -->
+        <p id="message" class="message">
+            No reports available.
+        </p>
+
+    <script>
+        function  goDashboard() {
+            window.location.href = "dashboard.html";
+        }
+
+        function goStudents() {
+            window.location.href = "student.html";
+        }
+
+        function goGrades() {
+            window.location.href = "grade.html";
+        }
+
+        function goSettings() {
+            window.location.href = "setting.html";
+        }
+        
+        function logout() {
+            window.location.href = "../login.html";
+        }
+    </script>
+
+</body>
+</html>
